@@ -1,3 +1,7 @@
 [submodule "verilog-uart"]
 	path = verilog-uart
 	url = https://github.com/alexforencich/verilog-uart.git
+[submodule "verilator"]
+	path = verilator
+	url = https://github.com/antmicro/verilator-1
+	branch = dynamic-scheduler

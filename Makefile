@@ -30,3 +30,8 @@ clean:
 	-@${MAKE} -C ${VERILATOR_SRC} clean
 
 ${BUILD_DIR}/uart: ${EXAMPLES_DIR}/uart/main.cpp ${EXAMPLES_DIR}/uart/tb.sv ${wildcard ${EXAMPLES_DIR}/uart/verilog-uart/rtl/uart*}
+${BUILD_DIR}/clock: ${EXAMPLES_DIR}/clock/main.cpp ${EXAMPLES_DIR}/clock/clock.sv
+${BUILD_DIR}/events: ${EXAMPLES_DIR}/events/main.cpp ${EXAMPLES_DIR}/events/events.sv
+${BUILD_DIR}/fork: ${EXAMPLES_DIR}/fork/main.cpp ${EXAMPLES_DIR}/fork/fork.sv
+${BUILD_DIR}/pong: ${EXAMPLES_DIR}/pong/main.cpp ${EXAMPLES_DIR}/pong/pong.sv
+${BUILD_DIR}/wait: ${EXAMPLES_DIR}/wait/main.cpp ${EXAMPLES_DIR}/wait/wait.sv

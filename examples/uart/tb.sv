@@ -1,6 +1,6 @@
 `timescale  1 ps / 1 ps
 
-module sv_testbench ();
+module uart_tb;
 
     logic clk, rst;
     logic [15:0] prescale = 1;
@@ -65,11 +65,11 @@ module sv_testbench ();
     // UART receiver testbench
     initial begin
         _input_uart = "hello world";
-    UART_finished = 1'b0;
+        UART_finished = 1'b0;
         rxd = 1;
         m_axis_tready = 0;
         _count = prescale * 8;
-    wait(rst_complete.triggered);
+        wait(rst_complete.triggered);
         fork
             // send UART data trigger
             begin
@@ -84,7 +84,7 @@ module sv_testbench ();
                 end
             end
 
-            // UART transmiter
+            // UART transmitter
             begin
                 for (int i = 0; i <_input_uart.len(); i++) begin
                     wait(send_data_uart.triggered);
@@ -108,7 +108,7 @@ module sv_testbench ();
                 end
             end
 
-            // AXI sterm sink
+            // AXI stream sink
             begin
                 for (int i = 0; i <_input_uart.len(); i++) begin
                     m_axis_tready = 1;
@@ -116,19 +116,19 @@ module sv_testbench ();
                         @(posedge clk);
                     end
                     _output_uart = {_output_uart, m_axis_tdata};
-                    $display("UART_RX recived: %x", m_axis_tdata, $time);
+                    $display("UART_RX received: %x", m_axis_tdata, $time);
                     @(posedge clk);
                 end
             end
         join
         if (_input_uart == _output_uart)
-            $display("Data recived successfully");
+            $display("Data received successfully");
         else
-            $display("Data revcived failed");
+            $display("Data reception failed");
         UART_finished = 1'b1;
     end
 
-    // UART transmiter testbench 
+    // UART transmitter testbench
     initial begin
         AXI_finished = 1'b0;
         _input_axi = "hello world";
@@ -161,12 +161,12 @@ module sv_testbench ();
                         for (int j=0;j<_count;j++)
                             @(posedge clk);
                     end
-                    $display("UART_TX recived: %x", m_axis_tdata, $time);
+                    $display("UART_TX received: %x", m_axis_tdata, $time);
                     _output_axi = {_output_axi, c};
                 end
             end
 
-            // AXI sterm source
+            // AXI stream source
             begin
                 for (int i = 0; i <_input_axi.len(); i++) begin
                     #0.1;
@@ -186,7 +186,7 @@ module sv_testbench ();
         if (_input_axi == _output_axi)
             $display("Data sent successfully");
         else
-            $display("Data sent failed");
+            $display("Data sending failed");
         AXI_finished = 1'b1;
     end
 

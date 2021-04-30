@@ -1,5 +1,5 @@
 [submodule "verilog-uart"]
-	path = verilog-uart
+	path = examples/uart/verilog-uart
 	url = https://github.com/alexforencich/verilog-uart.git
 [submodule "verilator"]
 	path = verilator

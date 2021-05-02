@@ -1,0 +1,12 @@
+{
+  "categories": [
+    "ASIC & FPGA"
+  ],
+  "tags": [
+    "verilog",
+    "verilator",
+    "systemverilog",
+    "uvm",
+    "testing"
+  ]
+}

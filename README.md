@@ -12,10 +12,10 @@ git submodule update --init
 You can run these examples using `make`:
 
 ``` sh
-make TESTNAME
+make EXAMPLE
 ```
 
-where `TESTNAME` is the name of one of the directories in `examples` (listed below).
+where `EXAMPLE` is the name of one of the directories in `examples` (listed below).
 
 ## Available examples
 

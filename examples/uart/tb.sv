@@ -21,7 +21,7 @@ module uart_tb;
             #1;
             clk = 1'b0;
             #1;
-        clk = 1'b1;
+            clk = 1'b1;
         end
     end
 
@@ -31,7 +31,7 @@ module uart_tb;
         #10;
         $display("Rst end");
         rst = 0;
-    -> rst_complete;
+        -> rst_complete;
     end
 
     uart DUT(
@@ -96,7 +96,7 @@ module uart_tb;
                 for (int k=0;k<8;k++)begin
                         rxd = _input_uart[i] >> k;
                      for (int j=0;j<_count;j++) begin
-                            @(posedge clk);
+                        @(posedge clk);
                      end
                 end
                     rxd = 1;
@@ -104,7 +104,7 @@ module uart_tb;
                     @(posedge clk);
                 end
                 $display("UART_RX sent: %x", _input_uart[i], $time);
-                    -> transfer_complete_uart;
+                -> transfer_complete_uart;
                 end
             end
 
@@ -156,7 +156,7 @@ module uart_tb;
                         @(posedge clk);
                     for (int j=0;j<_count;j++)
                         @(posedge clk);
-                    for (int k=0;k<8;k++)begin
+                    for (int k=0;k<8;k++) begin
                         c[k] = txd;
                         for (int j=0;j<_count;j++)
                             @(posedge clk);

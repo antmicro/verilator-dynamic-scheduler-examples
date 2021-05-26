@@ -1,4 +1,4 @@
-# Verilator with a dynamic scheduler
+# Verilator with a dynamic scheduler and `randomize()`
 
 Copyright (c) 2021 [Antmicro](https://www.antmicro.com)
 
@@ -24,6 +24,7 @@ where `EXAMPLE` is the name of one of the directories in `examples` (listed belo
 * `events` – event triggers, event controls, events in sensitivity lists,
 * `fork` – a showcase of the `fork` functionality, along with all possible `join` types,
 * `pong` – two `initial` blocks sending events to each other over multiple timeslots,
+* `randomize` – demonstrates support for the `randomize` class function with constraints,
 * `wait` – shows the `wait` statement in action.
 
 ## New functionality
@@ -94,4 +95,26 @@ $write("waited for all forked processes");
 ``` systemverilog
 wait((A < B && B > C) || A == C);
 $display("B is greater than both A and C, or A equals C");
+```
+
+### Randomize class function with constraints
+
+`randomize` is a built-in function available for all Verilog class instances. It populates class fields marked as `rand` with random values, subject to constraints specified either within the class, or next to `randomize`'s call site, using the `with` keyword.
+
+``` systemverilog
+class Cls;
+   constraint A { x inside {3, 5, 8, 13}; }
+
+   rand int x;
+   rand int y;
+endclass
+
+module t;
+   Cls obj;
+   initial begin
+      int rand_result;
+      obj = new;
+      rand_result = obj.randomize() with { y > 16; y < 42; };
+   end
+endmodule
 ```

@@ -34,4 +34,5 @@ ${BUILD_DIR}/clock: ${EXAMPLES_DIR}/clock/main.cpp ${EXAMPLES_DIR}/clock/clock.s
 ${BUILD_DIR}/events: ${EXAMPLES_DIR}/events/main.cpp ${EXAMPLES_DIR}/events/events.sv
 ${BUILD_DIR}/fork: ${EXAMPLES_DIR}/fork/main.cpp ${EXAMPLES_DIR}/fork/fork.sv
 ${BUILD_DIR}/pong: ${EXAMPLES_DIR}/pong/main.cpp ${EXAMPLES_DIR}/pong/pong.sv
+${BUILD_DIR}/randomize: ${EXAMPLES_DIR}/randomize/main.cpp ${EXAMPLES_DIR}/randomize/randomize.sv
 ${BUILD_DIR}/wait: ${EXAMPLES_DIR}/wait/main.cpp ${EXAMPLES_DIR}/wait/wait.sv

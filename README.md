@@ -1,4 +1,4 @@
-# Verilator with a dynamic scheduler and `randomize()`
+# Verilator with a dynamic scheduler
 
 Copyright (c) 2021 [Antmicro](https://www.antmicro.com)
 

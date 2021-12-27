@@ -5,10 +5,8 @@ module t;
 
    initial begin
        forever begin
-           clk = 1'b0;
-           #1;
-           clk = 1'b1;
-           #1;
+           #1 clk = 1'b1;
+           #1 clk = 1'b0;
        end
    end
 

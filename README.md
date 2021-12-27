@@ -64,14 +64,14 @@ end
 You can wait on multiple events at once:
 
 ``` systemverilog
-@(a, b, c);
+@(a, b, c)
 $display("got a, b, or c");
 ```
 
 It's even possible to wait on signal edges, as well as mix events with signal edges:
 
 ``` systemverilog
-@(e, posedge clk);
+@(e, posedge clk)
 $display("got e or clk's posedge");
 ```
 
@@ -81,9 +81,9 @@ Forks start parallel processes from another process. All possible forms of `join
 
 ``` systemverilog
 fork
-    begin $write("forked 1\n"); end
-    begin $write("forked 2\n"); end
-    begin $write("forked 3\n"); end
+    $write("forked 1\n");
+    $write("forked 2\n");
+    $write("forked 3\n");
 join
 $write("waited for all forked processes");
 ```
@@ -93,7 +93,7 @@ $write("waited for all forked processes");
 `wait` statements allow you to block the execution of a process until its condition is fulfilled. They accept even complex conditions:
 
 ``` systemverilog
-wait((A < B && B > C) || A == C);
+wait((A < B && B > C) || A == C)
 $display("B is greater than both A and C, or A equals C");
 ```
 

@@ -18,18 +18,15 @@ module uart_tb;
 
     initial begin
         forever begin
-            #1;
-            clk = 1'b0;
-            #1;
-            clk = 1'b1;
+            #1 clk = 1'b0;
+            #1 clk = 1'b1;
         end
     end
 
     event rst_complete;
     initial begin
         rst = 1;
-        #10;
-        $display("Rst end");
+        #10 $display("Rst end");
         rst = 0;
         -> rst_complete;
     end
@@ -169,8 +166,7 @@ module uart_tb;
             // AXI stream source
             begin
                 for (int i = 0; i <_input_axi.len(); i++) begin
-                    #0.1;
-                    s_axis_tvalid = 0;
+                    #0.1 s_axis_tvalid = 0;
                     wait(send_data_axi.triggered);
                     s_axis_tvalid = 1;
                     s_axis_tdata = _input_axi[i];
@@ -191,10 +187,9 @@ module uart_tb;
     end
 
     initial begin
-        while (!AXI_finished || !UART_finished) begin
-        #1;
-    end
-    $display("Finished!");
-    $finish;
+        while (!AXI_finished || !UART_finished)
+            #1;
+        $display("Finished!");
+        $finish;
     end
 endmodule

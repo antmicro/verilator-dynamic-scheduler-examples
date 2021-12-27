@@ -16,8 +16,7 @@ module t(clk);
       if (cyc == 0) begin
          for (int i = 0; i < 3; i++) begin
             $write("[%2t] waiting for event A, B, or C...\n", $time);
-            @(eventA, eventB, eventC);
-            $write("[%2t] got the event!\n", $time);
+            @(eventA, eventB, eventC) $write("[%2t] got the event!\n", $time);
          end
       end
       else if (cyc == 3) begin
@@ -35,17 +34,13 @@ module t(clk);
    end
 
    initial begin
-     #2;
-     $write("[%2t] triggering event D\n", $time);
+     #2 $write("[%2t] triggering event D\n", $time);
      ->eventD;
-     #1;
-     $write("[%2t] triggering event A\n", $time);
+     #1 $write("[%2t] triggering event A\n", $time);
      ->eventA;
-     #1;
-     $write("[%2t] triggering event B\n", $time);
+     #1 $write("[%2t] triggering event B\n", $time);
      ->eventB;
-     #1;
-     $write("[%2t] triggering event C\n", $time);
+     #1 $write("[%2t] triggering event C\n", $time);
      ->eventC;
    end
 

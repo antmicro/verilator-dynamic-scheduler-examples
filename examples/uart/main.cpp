@@ -2,7 +2,7 @@
 #include <Vtop.h>
 #include <unistd.h>
 
-vluint64_t main_time = 0;
+double main_time = 0;
 double sc_time_stamp() { return main_time; }
 
 int main(int argc, char *argv[]) {

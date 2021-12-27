@@ -3,21 +3,18 @@ module t;
    event ping;
    event pong;
 
-   initial begin
+   initial
        forever begin
            @ping;
            $write("[%2t] ping\n", $time);
-           #1;
-           ->pong;
+           #1 ->pong;
        end
-   end
 
    initial begin
        int cnt;
 
        forever begin
-           #1;
-           ->ping;
+           #1 ->ping;
            @pong;
            $write("[%2t] pong\n", $time);
            cnt++;

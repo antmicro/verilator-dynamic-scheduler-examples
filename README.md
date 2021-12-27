@@ -34,12 +34,11 @@ where `EXAMPLE` is the name of one of the directories in `examples` (listed belo
 Delay controls enable you to postpone the execution of some part of a process till a later simulation time. A simple example that generates a clock:
 
 ``` systemverilog
-initial begin
+initial
     forever begin
         #1 clk = 1'b0;
         #1 clk = 1'b1;
     end
-end
 ```
 
 ### Events
@@ -47,18 +46,16 @@ end
 Events give you the ability to synchronize the execution of multiple processes. Vanilla Verilator already supports them in sensitivity lists, but our version of Verilator lets you wait on events within a process block.
 
 ``` systemverilog
-initial begin
+initial
     forever begin
         @ping;
         #1 ->pong;
     end
-end
-initial begin
+initial
     forever begin
         #1 ->ping;
         @pong;
     end
-end
 ```
 
 You can wait on multiple events at once:

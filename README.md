@@ -2,7 +2,9 @@
 
 Copyright (c) 2021 [Antmicro](https://www.antmicro.com)
 
-This repository contains a number of examples that showcase our attempt at implementing a dynamic scheduler for Verilator, which can be found [here](https://github.com/antmicro/verilator-1/tree/dynamic-scheduler), and as a submodule in this repository.
+This repository contains a number of examples that showcase our attempt at implementing a dynamic scheduler for Verilator, which can be found [here](https://github.com/antmicro/verilator-1/tree/dynamic-scheduler), as well as limited support for `randomize` constraints (available [here](https://github.com/antmicro/verilator-1/tree/randomize-constraints)).
+
+This version of Verilator requires GCC 10 or newer, or Clang (tested with Clang 13).
 
 After cloning, please run:
 ``` sh

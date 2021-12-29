@@ -47,7 +47,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        example: [uart, clock,  events,  fork,  pong, wait]
+        example: [uart, clock, events, fork, pong, randomize, wait]
     name: ${{ matrix.example }}
     runs-on: ubuntu-latest
     steps:

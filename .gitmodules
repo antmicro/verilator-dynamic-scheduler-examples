@@ -4,4 +4,4 @@
 [submodule "verilator"]
 	path = verilator
 	url = https://github.com/antmicro/verilator-1
-	branch = dynamic-scheduler
+	branch = dynamic-scheduler-randomize-constraints

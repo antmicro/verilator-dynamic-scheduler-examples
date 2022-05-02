@@ -1,6 +1,6 @@
 # Verilator with a dynamic scheduler
 
-Copyright (c) 2021 [Antmicro](https://www.antmicro.com)
+Copyright (c) 2021-2022 [Antmicro](https://www.antmicro.com)
 
 This repository contains a number of examples that showcase our attempt at implementing a dynamic scheduler for Verilator, which can be found [here](https://github.com/antmicro/verilator-1/tree/dynamic-scheduler), as well as limited support for `randomize` constraints (available [here](https://github.com/antmicro/verilator-1/tree/randomize-constraints)).
 
